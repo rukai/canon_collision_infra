@@ -1,6 +1,6 @@
-<p>{{#*inline "page"}}</p>
+{{#*inline "page"}}
 
-<h1 class="doc-heading">PF Sandbox Manual</h1>
+<h1 class="doc-heading">Canon Collision Manual</h1>
 
 <h2 class="doc-heading">Controller Setup</h2>
 
@@ -25,10 +25,10 @@ There is no need to perform the steps listed under Dolphin Setup.</p>
 <h3 class="doc-heading">Other Controller Setup</h3>
 
 <p>Your controller may or may not be already mapped to a Gamecube controller.
-If PF Sandbox isn't responding to your controller you may need to create a map for your controller.
+If Canon Collision isn't responding to your controller you may need to create a map for your controller.
 </p>
 <ul>
-    <li>Run <code>pf_map_controllers.exe</code></li>
+    <li>Run <code>cc_map_controllers.exe</code></li>
     <li>Select your controller from the dropdown box.</li>
     <li>For all inputs: Press the input on your controller you want to map, then press the "Add from last input" for the GC input you want to map it to.</li>
     <li>Press Save</li>
@@ -48,7 +48,7 @@ Press Backspace to return control of the camera to the game.</p>
 
 <h2 class="doc-heading">Packages</h2>
 
-<p>Packages are how unique games are made and shared in PF Sandbox. A package contains:</p>
+<p>Packages are how unique games are made and shared in Canon Collision. A package contains:</p>
 <ul>
     <li>Stages</li>
     <li>Fighters</li>
@@ -56,8 +56,8 @@ Press Backspace to return control of the camera to the game.</p>
     <li>A source URL to retrieve updates from</li>
 </ul>
 
-<p>To add a package to PF Sandbox, download it, then click and drag it onto the PF Sandbox window.</p>
-<p>PF Sandbox will unzip it and store it here:</p>
+<p>To add a package to Canon Collision, download it, then click and drag it onto the Canon Collision window.</p>
+<p>Canon Collision will unzip it and store it here:</p>
 <ul>
     <li>Linux: <code>~/.local/share/PF_Sandbox/packages</code></li>
     <li>Windows: <code>C:\Users\USERNAME\Appdata\Local\PF_Sandbox\packages</code> (replace USERNAME with your actual username)</li>
@@ -225,12 +225,12 @@ Any collisionbox can now be click and drag'ed around the root box.</p>
 
 <h2 class="doc-heading">Command line</h2>
 
-<p>Press '~' to open the command line in PF Sandbox.
-Alternatively you can use the pf_cli binary to send commands via your OS's terminal to PF Sandbox.
-Note that when using pf_cli you will need to escape characters that have special meaning to your shell. e.g. quotes</p>
+<p>Press '~' to open the command line in Canon Collision.
+Alternatively you can use the cc_cli binary to send commands via your OS's terminal to Canon Collision.
+Note that when using cc_cli you will need to escape characters that have special meaning to your shell. e.g. quotes</p>
 
-<p>The PF Sandbox command line is very powerful, at the price of complexity.
-We recommend you work through the Command Line section of the <a href="tutorial">Editor Tutorial</a> if you have not yet worked with the PF Sandbox command line tool.
+<p>The Canon Collision command line is very powerful, at the price of complexity.
+We recommend you work through the Command Line section of the <a href="tutorial">Editor Tutorial</a> if you have not yet worked with the Canon Collision command line tool.
 You can then come back here if you ever need a reference.</p>
 
 <h3 class="doc-heading">Breakdown</h3>
@@ -334,10 +334,10 @@ Objects are chained together with '.' and indexed by [] like this:</p>
 <p><code>package.fighters["fighter.json"].actions[0].frames[0].colboxes[2].radius:set 10</code></p>
 
 <p>However how are you supposed to know all of these indexes? o.0
-Instead you can let PF Sandbox use context to know what you want to modify.
+Instead you can let Canon Collision use context to know what you want to modify.
 Select the hitboxes you want in game then run:</p>
 
-<p><code>pf package.fighters[?].actions[?].frames[?].colboxes[?].radius:set 10</code></p>
+<p><code>cc package.fighters[?].actions[?].frames[?].colboxes[?].radius:set 10</code></p>
 
 <h2 class="doc-heading">Sharing a Package With a Friend</h2>
 
@@ -345,7 +345,7 @@ Select the hitboxes you want in game then run:</p>
     <li>Run <code>package:publish</code></li>
     <li>Open the folder at <code>C:\Users\USERNAME\AppData\Local\PF_Sandbox\publish\</code> or <code>~/.local/share/PF_Sandbox/publish/</code></li>
     <li>Send the most recent <code>package*.zip</code> file to your friend.</li>
-    <li>Your friend then click and drags the <code>package*.zip</code> file to their PF Sandbox window.</li>
+    <li>Your friend then click and drags the <code>package*.zip</code> file to their Canon Collision window.</li>
 </ol>
 
 <h2 class="doc-heading">Publishing a Package</h2>
@@ -355,7 +355,7 @@ Perform the following every time you want to publish a new version of your packa
 
 <ol>
     <li>
-        Add a source property to your package_meta, this is a URL where pf_sandbox will automatically download new versions of the package from.
+        Add a source property to your package_meta, this is a URL where cc_sandbox will automatically download new versions of the package from.
         Run the commands:
         <ol>
             <li><code>package.meta.source:insert</code></li>
@@ -368,9 +368,9 @@ Perform the following every time you want to publish a new version of your packa
 </ol>
 
 <p>Note:
-If PF Sandbox encounters any errors while updating a package, it will "silently" fail and continue loading the package as normal.
+If Canon Collision encounters any errors while updating a package, it will "silently" fail and continue loading the package as normal.
 This is because we dont want to prevent users playing local games due to network issues.
-However to troubleshoot issues with PF Sandbox downloading/updating your package you can check stdout for errors.
-{{/inline}}</p>
+However to troubleshoot issues with Canon Collision downloading/updating your package you can check stdout for errors.
+{{/inline}}
 
-<p>{{~> base title="PF Sandbox | Manual" page_manual=true ~}}</p>
+{{~> base title="Canon Collision | Manual" page_manual=true ~}}

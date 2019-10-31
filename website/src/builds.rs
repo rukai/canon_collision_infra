@@ -19,7 +19,7 @@ pub fn build_reader() -> Arc<RwLock<Commits>> {
 }
 
 fn run(commits_rw: Arc<RwLock<Commits>>) {
-    let url = "https://github.com/rukai/pf_sandbox";
+    let url = "https://github.com/rukai/canon_collision";
     let repo = match Repository::open(files::git_path()) {
         Ok(repo) => repo,
         Err(_)   => Repository::clone(url, files::git_path()).unwrap(),
@@ -61,8 +61,8 @@ fn attempt_update(repo: &Repository, remote: &mut Remote, commits_rw: Arc<RwLock
 
         let build_commit = Commit {
             message: commit.message().unwrap_or("NON-UTF8 MESSAGE").to_string(),
-            windows: build_zips.contains(format!("pfsandbox-{}-windows.zip", hash).as_str()),
-            linux:   build_zips.contains(format!("pfsandbox-{}-linux.tar.gz", hash).as_str()),
+            windows: build_zips.contains(format!("canoncollision-{}-windows.zip", hash).as_str()),
+            linux:   build_zips.contains(format!("canoncollision-{}-linux.tar.gz", hash).as_str()),
             hash,
             date
         };

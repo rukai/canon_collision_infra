@@ -1,7 +1,7 @@
 {{#*inline "page"}}
 <h1 class="doc-heading">Editor Tutorial</h1>
 
-<p>Following this tutorial is a great way to get started with editing fighters in PF Sandbox.
+<p>Following this tutorial is a great way to get started with editing fighters in Canon Collision.
 For a full reference of every operation check out the <a href="manual">Manual</a>.
 All controller inputs mentioned in this tutorial use the <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/GCController_Layout.svg/450px-GCController_Layout.svg.png">Gamecube controller layout</a>.
 </p>
@@ -11,7 +11,7 @@ All controller inputs mentioned in this tutorial use the <a href="https://upload
 <p>It is important to create your own package to put your fighters in.
 If you instead modify the example package, when an update is released for it, your modifications will be lost!</p>
 
-<p>Press '~' to open the command line in PF Sandbox.
+<p>Press '~' to open the command line in Canon Collision.
 run command <code>:open_package my_package</code></p>
 
 <p>Then start a local game with the example fighter as player 1 and 2.</p>
@@ -121,11 +121,11 @@ Notice how each frame needs to complete before the fighter will lift off the gro
 <p>As you are editing your fighter you will want to manually control the camera to better see your fighter.
 Zoom in and out with the scroll wheel on your mouse.
 Reposition the camera with middle click.
-To give control of the camera back to PF Sandbox press Backspace.</p>
+To give control of the camera back to Canon Collision press Backspace.</p>
 
 <h2 class="doc-heading">Command Line</h2>
 
-<p>Press '~' to open the command line in PF Sandbox.</p>
+<p>Press '~' to open the command line in Canon Collision.</p>
 <p>A command looks like this:</p>
 <p><code>package:help</code></p>
 <p>We use the help command to learn what an object can do and what other objects it contains.
@@ -136,7 +136,7 @@ Lets further investigate fighters.</p>
 <h2 class="doc-heading">Save/Reload</h2>
 <p>Run the command: <code>package:save</code>
 Wait for the 'Save completed successfully' message to appear.
-Close PF Sandbox and reopen it to verify that your changes are still there.</p>
+Close Canon Collision and reopen it to verify that your changes are still there.</p>
 
 <p>Make a change to your fighter and then run: <code>package:reload</code>
 Verify that your fighter is the same as when you last ran <code>package:save</code></p>
@@ -148,7 +148,7 @@ Verify that your fighter is the same as when you last ran <code>package:save</co
 <p><code>package.fighters["base_fighter.json"]:help</code></p>
 <p>But thats generally not useful. (We dont want to have to check the filename of the fighter we are editing.)
 Instead we make use of the context system.
-By using <code>?</code> as our key, we tell PF Sandbox to automatically choose the fighter to access via in game context.
+By using <code>?</code> as our key, we tell Canon Collision to automatically choose the fighter to access via in game context.
 In this case it uses the fighter used by the player we have selected with keys 1234.</p>
 <p><code>package.fighters[?]:help</code></p>
 <p>If this doesnt display the fighter help, ensure you are in a game, pf sandbox is paused (spacebar) and you have selected a player (1)</p>
@@ -206,4 +206,4 @@ So commands that work in game wont necessarily work in the menu and vice versa.
 Use <code>:help</code> while in game and in menu to see the differences.</p>
 {{/inline}}
 
-{{~> base title="PF Sandbox | Editor Tutorial" page_tutorial=true ~}}
+{{~> base title="Canon Collision | Editor Tutorial" page_tutorial=true ~}}

@@ -16,7 +16,7 @@
             {{else}}
             <li class="nav-item">
             {{/if}}
-                <a class="nav-link" href="/">PF Sandbox</a>
+                <a class="nav-link" href="/">Canon Collision</a>
             </li>
             </ul>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,12 +25,20 @@
 
             <div class="collapse navbar-collapse" id="mainNavbar">
                 <ul class="navbar-nav mr-auto">
+                    {{#if page_builds}}
+                    <li class="nav-item active">
+                    {{else}}
+                    <li class="nav-item">
+                    {{/if}}
+                        <a class="nav-link" href="/builds">Download</a>
+                    </li>
+
                     {{#if page_tutorial}}
                     <li class="nav-item active">
                     {{else}}
                     <li class="nav-item">
                     {{/if}}
-                        <a class="nav-link" href="/tutorial">Tutorial</a>
+                        <a class="nav-link" href="/tutorial">Modding Tutorial</a>
                     </li>
 
                     {{#if page_manual}}
@@ -38,15 +46,11 @@
                     {{else}}
                     <li class="nav-item">
                     {{/if}}
-                        <a class="nav-link" href="/manual">Manual</a>
+                        <a class="nav-link" href="/manual">Modding Manual</a>
                     </li>
 
                     <li class="nav-item">
                         <a class="nav-link" href="https://discord.gg/KyjBs4x">Discord</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://www.patreon.com/rukai">Download@Patreon</a>
                     </li>
                 </ul>
             </div>

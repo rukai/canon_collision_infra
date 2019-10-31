@@ -2,5 +2,4 @@
 members = [
     "website",
     "matchmaking",
-    "discord-bot"
 ]

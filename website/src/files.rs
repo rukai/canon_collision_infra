@@ -4,7 +4,7 @@ use dirs;
 pub fn get_path() -> PathBuf {
     match dirs::home_dir() {
         Some (mut home) => {
-            home.push("PF_Sandbox_Website");
+            home.push("CanonCollisionWebsite");
             home
         }
         None => {
