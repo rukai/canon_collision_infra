@@ -46,30 +46,9 @@ Use <code>b</code> on your GC controller to go to previous menus (keep pressing 
 Scroll to zoom the camera.
 Press Backspace to return control of the camera to the game.</p>
 
-<h2 class="doc-heading">Packages</h2>
-
-<p>Packages are how unique games are made and shared in Canon Collision. A package contains:</p>
-<ul>
-    <li>Stages</li>
-    <li>Fighters</li>
-    <li>Game Rules</li>
-    <li>A source URL to retrieve updates from</li>
-</ul>
-
-<p>To add a package to Canon Collision, download it, then click and drag it onto the Canon Collision window.</p>
-<p>Canon Collision will unzip it and store it here:</p>
-<ul>
-    <li>Linux: <code>~/.local/share/PF_Sandbox/packages</code></li>
-    <li>Windows: <code>C:\Users\USERNAME\Appdata\Local\PF_Sandbox\packages</code> (replace USERNAME with your actual username)</li>
-</ul>
-
-<p>You can safely copy fighter and stage files between packages.</p>
-<p>You can use the <code>:open_package $package_folder_name</code> command on the menu to open the package stored at the specified folder name.
-If the package does not exist at that folder a new package is created there.</p>
-
 <h2 class="doc-heading">Editor</h2>
 
-<p>Always backup any packages you are working on.
+<p>Always backup any changes you are working on.
 Due to the nature of the interface it is super easy to accidentally destroy work without realising.</p>
 <p>To work through some examples check out the <a href="tutorial">editor-tutorial</a>.</p>
 <p>The pause screen is where all the editing action occurs.
@@ -339,38 +318,5 @@ Select the hitboxes you want in game then run:</p>
 
 <p><code>cc package.fighters[?].actions[?].frames[?].colboxes[?].radius:set 10</code></p>
 
-<h2 class="doc-heading">Sharing a Package With a Friend</h2>
-
-<ol>
-    <li>Run <code>package:publish</code></li>
-    <li>Open the folder at <code>C:\Users\USERNAME\AppData\Local\PF_Sandbox\publish\</code> or <code>~/.local/share/PF_Sandbox/publish/</code></li>
-    <li>Send the most recent <code>package*.zip</code> file to your friend.</li>
-    <li>Your friend then click and drags the <code>package*.zip</code> file to their Canon Collision window.</li>
-</ol>
-
-<h2 class="doc-heading">Publishing a Package</h2>
-
-Publishing a package allows your to easily keep your users up to date with the latest version of your package.
-Perform the following every time you want to publish a new version of your package.
-
-<ol>
-    <li>
-        Add a source property to your package_meta, this is a URL where cc_sandbox will automatically download new versions of the package from.
-        Run the commands:
-        <ol>
-            <li><code>package.meta.source:insert</code></li>
-            <li><code>package.meta.source:set your-domain.com/package_folder</code> (replace the URL with your own)</li>
-        </ol>
-    </li>
-    <li>Run <code>package:publish</code></li>
-    <li>Open the folder at <code>C:\Users\USERNAME\AppData\Local\PF_Sandbox\publish\</code> or <code>~/.local/share/PF_Sandbox/publish/</code></li>
-    <li>Upload package_meta.json and the latest package*.zip file to your webserver at the URL you specified in the source property.</li>
-</ol>
-
-<p>Note:
-If Canon Collision encounters any errors while updating a package, it will "silently" fail and continue loading the package as normal.
-This is because we dont want to prevent users playing local games due to network issues.
-However to troubleshoot issues with Canon Collision downloading/updating your package you can check stdout for errors.
 {{/inline}}
-
 {{~> base title="Canon Collision | Manual" page_manual=true ~}}
