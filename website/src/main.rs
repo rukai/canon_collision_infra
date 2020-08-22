@@ -1,5 +1,3 @@
-#![feature(proc_macro_hygiene, decl_macro)]
-
 #[macro_use] extern crate rocket;
 #[macro_use] extern crate serde_derive;
 
@@ -106,21 +104,20 @@ fn builds_paginated(builds_rw: State<Arc<RwLock<Commits>>>, request: Form<Builds
 }
 
 #[get("/static/<file..>")]
-fn files(file: PathBuf) -> Option<NamedFile> {
-    NamedFile::open(Path::new("static/").join(file)).ok()
+async fn files(file: PathBuf) -> Option<NamedFile> {
+    NamedFile::open(Path::new("static/").join(file)).await.ok()
 }
 
-fn main() {
+#[launch]
+fn rocket() -> rocket::Rocket {
     if env::current_dir().unwrap().file_name().unwrap() != OsStr::new("website") {
         // templates are correctly located by finding the Rocket.toml
         // However static files are not handled, so if we aren't in the root directory, close immediately to avoid headaches.
-        println!("Wrong directory, dummy!");
-        return;
+        panic!("Wrong directory, dummy!");
     }
     let builds = builds::build_reader();
     rocket::ignite()
         .manage(builds)
         .mount("/", routes![index, builds_paginated, builds, tutorial, manual, tas, files])
         .attach(Template::fairing())
-        .launch();
 }
