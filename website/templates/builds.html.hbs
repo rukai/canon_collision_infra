@@ -29,7 +29,42 @@
 {{/with}}
 -->
 
+<h2>Controller Setup</h2>
+
+<h3>Controller Support</h3>
+
+<ul>
+    <li>Windows: Xbox controllers + native GC adapter</li>
+    <li>Linux: All controllers + native GC adapter</li>
+</ul>
+
+You cannot use a keyboard as a controller, you must setup a controller as below.
+
+<h3>WiiU adapter setup</h3>
+
+<p>Follow the steps for your OS, found under Installation at this <a href="https://wiki.dolphin-emu.org/index.php?title=How_to_use_the_Official_GameCube_Controller_Adapter_for_Wii_U_in_Dolphin">Dolphin Wiki page</a>.
+There is no need to perform the steps listed under Dolphin Setup.</p>
+
+<p>Make sure your adapter is <span class="warning">set to Wii U mode</span>.
+There is no need to perform any mapping.</p>
+
 <div id="buildlist">
+
+    <!--
+        TODO: Reenable once we get cc_map_controllers.exe building on windows.
+    <h2 class="doc-heading">Other Controller Setup</h2>
+
+    <p>Your controller may or may not be already mapped to a Gamecube controller.
+    If Canon Collision isn't responding to your controller you may need to create a map for your controller.
+    </p>
+    <ul>
+        <li>Run <code>cc_map_controllers.exe</code></li>
+        <li>Select your controller from the dropdown box.</li>
+        <li>For all inputs: Press the input on your controller you want to map, then press the "Add from last input" for the GC input you want to map it to.</li>
+        <li>Press Save</li>
+    </ul>
+    -->
+
     <h1>Latest Builds</h1>
     <table>
         {{#each builds}}

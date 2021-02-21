@@ -1,50 +1,23 @@
 {{#*inline "page"}}
 
-<h1 class="doc-heading">Canon Collision Manual</h1>
+<h1 class="doc-heading">Modding Manual</h1>
 
-<h2 class="doc-heading">Controller Setup</h2>
+<h2 class="doc-heading">Camera</h2>
 
-<h3 class="doc-heading">Controller Support</h3>
+<p>Press esc to toggle between orthographic and perspective camera.
+Press Backspace to return control of the camera to the game.</p>
 
-<ul>
-    <li>Windows: Xbox controllers + native GC adapter</li>
-    <li>Linux: All controllers + native GC adapter</li>
-</ul>
-
-You cannot use a keyboard as a controller, you must setup a controller as below.
-
-<h3 class="doc-heading">WiiU adapter setup</h3>
-
-<p>Follow the steps for your OS, found under Installation at this <a href="https://wiki.dolphin-emu.org/index.php?title=How_to_use_the_Official_GameCube_Controller_Adapter_for_Wii_U_in_Dolphin">Dolphin Wiki page</a>.
-There is no need to perform the steps listed under Dolphin Setup.</p>
-
-<p>Make sure your adapter is <span class="warning">set to Wii U mode</span>.</p>
-
-<p>There is no need to perform any mapping.</p>
-
-<h3 class="doc-heading">Other Controller Setup</h3>
-
-<p>Your controller may or may not be already mapped to a Gamecube controller.
-If Canon Collision isn't responding to your controller you may need to create a map for your controller.
-</p>
-<ul>
-    <li>Run <code>cc_map_controllers.exe</code></li>
-    <li>Select your controller from the dropdown box.</li>
-    <li>For all inputs: Press the input on your controller you want to map, then press the "Add from last input" for the GC input you want to map it to.</li>
-    <li>Press Save</li>
-</ul>
-
-<h2 class="doc-heading">Gameplay</h2>
-
-<p>Use <code>a</code> on your GC controller to: select package, select local, select characters, select stages and FIGHT!
-Use <code>b</code> on your GC controller to go to previous menus (keep pressing to reach package select screen)</p>
-<p>The player outlines are used to signify which team they belong to, you can change teams on the character select screen.</p>
-
-<h3 class="doc-heading">Camera</h3>
-
+<h3 class="doc-heading">Orthographic Camera</h3>
 <p>Middle click to pan the camera.
 Scroll to zoom the camera.
-Press Backspace to return control of the camera to the game.</p>
+Press Backspace to return control of the camera to the game.
+</p>
+
+<h3 class="doc-heading">Perspective Camera</h3>
+<p>wasd to pan and zoom the camera.
+Middle click and drag to change the angle of the camera.
+Press Backspace to return control of the camera to the game.
+</p>
 
 <h2 class="doc-heading">Editor</h2>
 
@@ -70,15 +43,11 @@ Due to the nature of the interface it is super easy to accidentally destroy work
 <p>Before editing anything you must first select what you wish to edit:</p>
 
 <ul>
-    <li>0         - Stage</li>
-    <li>1         - Player 1's fighter</li>
-    <li>2         - Player 2's fighter</li>
-    <li>3         - Player 3's fighter</li>
-    <li>4         - Player 4's fighter</li>
-    <li>1 + Shift - Player 1</li>
-    <li>2 + Shift - Player 2</li>
-    <li>3 + Shift - Player 3</li>
-    <li>4 + Shift - Player 4</li>
+    <li>0 - Stage</li>
+    <li>1 - 1st entity</li>
+    <li>2 - 2nd entity</li>
+    <li>3 - 3rd entity</li>
+    <li>4 - 4th entity</li>
 </ul>
 
 <h3 class="doc-heading">Element Selection</h3>
@@ -91,7 +60,7 @@ In different editor modes you can select different elements to modify them.</p>
     <li>Right click and drag - Select multiple elements</li>
 </ul>
 
-<h4>Modifiers</h4>
+<h4 class="doc-heading">Modifiers</h4>
 
 <ul>
     <li>Default   - Delete the previous selection</li>
@@ -105,7 +74,7 @@ In different editor modes you can select different elements to modify them.</p>
 Textual debug output is also written to stdout every time a frame is changed or modified.
 Use F1-F12 to toggle them.</p>
 
-<h2 class="doc-heading">Fighter Editor (1-9)</h2>
+<h2 class="doc-heading">Entity Editor (1-9)</h2>
 
 <h3 class="doc-heading">Debug Displays</h3>
 
@@ -119,7 +88,7 @@ Use F1-F12 to toggle them.</p>
     <li>F6 - pre DI vector (red) + post DI vector (green)</li>
     <li>F7 - hitbox BKB vector (white) + hitbox KBG (blue)</li>
     <li>F8 - Display ECB and BPS</li>
-    <li>F9 - Dont display fighter</li>
+    <li>F9 - Change between rendering modes: Model, Model+colboxes, colboxes, nothing</li>
     <li>F10 - Display player camera area</li>
     <li>F11 - Enable all debug displays</li>
     <li>F12 - Disable all debug displays</li>
@@ -140,37 +109,12 @@ Use F1-F12 to toggle them.</p>
 
 <ul>
     <li>A - Move colboxes, left click to confirm</li>
-    <!--<li>S - Toggle pivot mode (TODO)</li>-->
     <li>D - Delete selected colboxes</li>
-    <li>
-        F - Insert colbox meld linked to selected colboxes, left click to confirm
-        <ul>
-            <li>Shift: simple link</li>
-        </ul>
-    </li>
+    <li>F - Insert hurtbox</li>
     <li>[ - Shrink selected colboxes</li>
     <li>] - Grow selected colboxes</li>
-    <!--<li>Z - Meld link colboxes (TODO)</li>-->
-    <!--<li>X - Simple link colboxes (TODO)</li>-->
-    <!--<li>C - Unlink colboxes (TODO)</li>-->
-    <li>, - Bring selected colboxes in front of the other colboxes</li>
-    <li>. - Send selected colboxes behind the other colboxes</li>
     <li>Q - Set selected hitbox angles to point to the cursor</li>
 </ul>
-
-<p>Linking collision boxes allows them to be pivoted in pivot mode.
-Meld links combines collisionboxes into a single collisionbox.</p>
-
-<!--
-<h3 class="doc-heading">Pivot mode (TODO)</h3>
-
-<p>When there is one collisionbox selected, pressing <code>S</code> will enter pivot mode.</p>
-
-<p>The selected collisionbox becomes the root collision box.
-Any collisionbox can now be click and drag'ed around the root box.</p>
-
-<p>Press <code>S</code> again to leave pivot mode.</p>
--->
 
 <h2 class="doc-heading">Stage Editor (0)</h2>
 
@@ -215,17 +159,17 @@ You can then come back here if you ever need a reference.</p>
 <h3 class="doc-heading">Breakdown</h3>
 
 <p>Lets give a quick breakdown of an example command.
-This command sets the weight of someFighter in the package myPackage to 1.2:</p>
+This command sets the weight of foo_entity to 1.2:</p>
 
-<p><code>package.fighters[base_fighter.json].weight:set 1.2</code></p>
+<p><code>package.entities[foo_entity.cbor].weight:set 1.2</code></p>
 
 <ul>
-    <li>package             - property</li>
-    <li>fighters            - property</li>
-    <li>[base_fighter.json] - key</li>
-    <li>weight              - property</li>
-    <li>set                 - command</li>
-    <li>1.2                 - value</li>
+    <li>package           - property</li>
+    <li>entities          - property</li>
+    <li>[foo_entity.cbor] - key</li>
+    <li>weight            - property</li>
+    <li>set               - command</li>
+    <li>1.2               - value</li>
 </ul>
 
 <p>A command consists of:</p>
@@ -310,13 +254,13 @@ Objects contain other objects creating a large tree:
 Setting a colbox to radius 10 can be done the primitive way.
 Objects are chained together with '.' and indexed by [] like this:</p>
 
-<p><code>package.fighters["fighter.json"].actions[0].frames[0].colboxes[2].radius:set 10</code></p>
+<p><code>package.entities["fighter.cbor"].actions[0].frames[0].colboxes[2].radius:set 10</code></p>
 
 <p>However how are you supposed to know all of these indexes? o.0
 Instead you can let Canon Collision use context to know what you want to modify.
 Select the hitboxes you want in game then run:</p>
 
-<p><code>cc package.fighters[?].actions[?].frames[?].colboxes[?].radius:set 10</code></p>
+<p><code>cc package.entities[?].actions[?].frames[?].colboxes[?].radius:set 10</code></p>
 
 {{/inline}}
 {{~> base title="Canon Collision | Manual" page_manual=true ~}}
