@@ -1,8 +1,8 @@
 use std::path::PathBuf;
-use dirs;
+use dirs_next;
 
 pub fn get_path() -> PathBuf {
-    match dirs::home_dir() {
+    match dirs_next::home_dir() {
         Some (mut home) => {
             home.push("CanonCollisionWebsite");
             home

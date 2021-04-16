@@ -4,7 +4,6 @@
 use rocket_contrib::templates::Template;
 use rocket::response::NamedFile;
 use rocket::State;
-use rocket::request::Form;
 
 use std::path::{Path, PathBuf};
 use std::env;
@@ -54,16 +53,16 @@ pub struct BuildsPage {
 }
 
 #[get("/builds")]
-fn builds(builds_rw: State<Arc<RwLock<Commits>>>) -> Template {
-    let builds_page = Form(BuildsPageRequest {
+fn builds_first(builds_rw: State<Arc<RwLock<Commits>>>) -> Template {
+    let builds_page = BuildsPageRequest {
         page:     None,
         per_page: None,
-    });
+    };
     builds_paginated(builds_rw, builds_page)
 }
 
 #[get("/builds?<request..>")]
-fn builds_paginated(builds_rw: State<Arc<RwLock<Commits>>>, request: Form<BuildsPageRequest>) -> Template {
+fn builds_paginated(builds_rw: State<Arc<RwLock<Commits>>>, request: BuildsPageRequest) -> Template {
     let current_page = request.page.unwrap_or(0);
     let per_page = request.per_page.unwrap_or(20);
 
@@ -104,20 +103,20 @@ fn builds_paginated(builds_rw: State<Arc<RwLock<Commits>>>, request: Form<Builds
 }
 
 #[get("/static/<file..>")]
-async fn files(file: PathBuf) -> Option<NamedFile> {
+async fn files_route(file: PathBuf) -> Option<NamedFile> {
     NamedFile::open(Path::new("static/").join(file)).await.ok()
 }
 
 #[launch]
-fn rocket() -> rocket::Rocket {
+fn rocket() -> _ {
     if env::current_dir().unwrap().file_name().unwrap() != OsStr::new("website") {
         // templates are correctly located by finding the Rocket.toml
         // However static files are not handled, so if we aren't in the root directory, close immediately to avoid headaches.
         panic!("Wrong directory, dummy!");
     }
     let builds = builds::build_reader();
-    rocket::ignite()
+    rocket::build()
         .manage(builds)
-        .mount("/", routes![index, builds_paginated, builds, tutorial, manual, tas, files])
+        .mount("/", routes![index, builds_paginated, builds_first, tutorial, manual, tas, files_route])
         .attach(Template::fairing())
 }
